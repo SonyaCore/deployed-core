@@ -4,12 +4,12 @@ import { RATELIMIT_SECRET } from '$env/static/private';
 if (!RATELIMIT_SECRET) throw new Error('Ratelimit secret key not provided');
 
 const limiter = new RateLimiter({
-	IP: [10, 'm'],
-	IPUA: [5, 'm'],
+	IP: [30, 'm'],
+	IPUA: [10, 'm'],
 	cookie: {
 		name: 'client_id',
 		secret: RATELIMIT_SECRET,
-		rate: [2, 'm'],
+		rate: [4, 'm'],
 		preflight: false
 	}
 });
